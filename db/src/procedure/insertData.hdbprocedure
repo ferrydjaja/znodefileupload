@@ -1,0 +1,29 @@
+PROCEDURE "insertData" ( 
+	in MATERIAL_NUMBER NVARCHAR(18),
+	in BATCH_DATE DATE,
+	in MATERIAL_DESCRIPTION NVARCHAR(1000),
+	in COUNTRY NVARCHAR(2),
+	in PROCESS_FLAG NVARCHAR(1),
+	in RUNID INTEGER
+) 
+	LANGUAGE SQLSCRIPT
+	SQL SECURITY INVOKER 
+	--DEFAULT SCHEMA <default_schema_name>
+	--READS SQL DATA AS
+	AS -- "READS SQL DATA " removed  
+BEGIN
+/***************************** 
+	Write your procedure logic 
+ *****************************/
+insert into
+	"ZFILEUPLOAD_DUMMY"
+	values 
+		(
+			MATERIAL_NUMBER,
+			BATCH_DATE,
+			MATERIAL_DESCRIPTION,
+			COUNTRY,
+			PROCESS_FLAG,
+			RUNID
+		);
+END;
